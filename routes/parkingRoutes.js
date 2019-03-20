@@ -2,6 +2,7 @@ const express = require('express')
 const parkingRouter = express.Router()
 const Parking = require('../models/parkingLocation.js')
 
+
 // Get a users locations
 parkingRouter.get("/user/:userID", (req, res, next) => {
     Parking.find({user: req.params.userID}, (err, userParking) => {

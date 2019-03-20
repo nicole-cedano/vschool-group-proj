@@ -1,16 +1,18 @@
 import React from 'react'
-
+import {withUsers} from '../context/userProvider.js'
 
 const Home = (props) => {
     const {handleChange, handleSubmit, userName: {userName} } = props
     return(
         <div>
             <form onSubmit={handleSubmit}>
-                username: <input 
+                username:  <input 
                     type="text" 
-                    name="userName" value={userName} 
+                    name="userName"
+                    value={userName} 
                     onChange={handleChange} 
-                    placeholder="User name" />
+                    placeholder="Username" 
+                    />
 
                 <button>sign up</button>
                 or
@@ -18,9 +20,8 @@ const Home = (props) => {
                 if you already have an account
             </form>
 
-            <h4> </h4>
         </div>
     )
 }
 
-export default Home 
+export default withUsers(Home )
