@@ -19,6 +19,12 @@ class App extends Component {
 
     handleSubmit = (e) => {
         e.preventdefault()
+        const newUser= {
+            userName: this.state.userName
+        }
+        this.props.addUser(newUser)
+        this.setState({userName: ""})
+
     }
 
     render(){
