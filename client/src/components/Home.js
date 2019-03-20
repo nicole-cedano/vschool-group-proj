@@ -2,14 +2,11 @@ import React from 'react'
 
 
 const Home = (props) => {
-    const {handleChange, handleSubmit, userName} = props
+    const {handleChange, handleSubmit, userName: {userName} } = props
     return(
         <div>
-            <div>
-                Park U
-            </div>
             <form onSubmit={handleSubmit}>
-                please provide you name: <input 
+                username: <input 
                     type="text" 
                     name="userName" value={userName} 
                     onChange={handleChange} 
