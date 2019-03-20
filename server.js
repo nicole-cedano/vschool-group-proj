@@ -15,7 +15,7 @@ mongoose.connect("mongodb://localhost:27017/parking-u-db", {useNewUrlParser: tru
 })
 
 //Routes
-app.use("/user", require('./routes/userRoutes.js'))
+app.use("/user", require("./routes/userRoutes.js"))
 app.use("/parking-locations", require('./routes/parkingRoutes.js'))
 
 // Error Handler
