@@ -2,15 +2,11 @@ import React from 'react'
 import {withUsers} from '../context/userProvider.js'
 
 const Home = (props) => {
-    const {handleChange, handleSubmit, userName: {userName}} = props
+    const {handleChange, handleSubmit, userName: {userName} } = props
     return(
         <div>
-            <div>
-                Park U
-            </div>
             <form onSubmit={handleSubmit}>
-                username: 
-                 <input 
+                username:  <input 
                     type="text" 
                     name="userName"
                     value={userName} 

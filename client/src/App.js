@@ -1,14 +1,24 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
+import Navbar from './components/Navbar.js'
 import Home from './components/Home.js'
+import AboutUs from './components/AboutUs.js'
+import Parkings from './components/Parkings.js'
+import { withParking } from './context/ParkingProvider.js'
+import { withRouter, Route, Switch } from 'react-router-dom'
 import './style.css'
 
 
+
 class App extends Component {
-    constructor(){
+    constructor() {
         super()
         this.state = {
             userName: "",
         }
+    }
+
+    componentDidMount = () => {
+        /// the axios request will go here
     }
 
     handleChange = (e) => {
@@ -27,20 +37,26 @@ class App extends Component {
 
     }
 
-    render(){
-    return  (
-        <div>
-            <Home 
-            handleChange={this.handlechange} 
-            handleSubmit={this.handleSubmit}
-            userName={this.state.userName}
-          
-             /> 
-        </div>
-    )
+    render() {
+        return (
+            <div>
+                <Navbar /> 
+                <Switch>
+                    <Route exact path="/" render={routerProps => <Home {...routerProps}
+                        handleChange={this.handlechange}
+                        handleSubmit={this.handleSubmit}
+                        userName={this.state.userName}
+                    />} />
+                    
+                    <Route path="/About" Component={AboutUs} /> 
+                    <Route path="/Parkings" render={routerProps => <Parkings {...routerProps} />} />
+                </Switch>
+
+            </div>
+        )
     }
 }
 
-export default App
+export default withRouter(withParking(App))
 
 
