@@ -5,6 +5,9 @@ const Home = (props) => {
     const {handleChange, handleSubmit, userName} = props
     return(
         <div>
+            <div>
+                Park U
+            </div>
             <form onSubmit={handleSubmit}>
                 please provide you name: <input 
                     type="text" 
@@ -13,6 +16,9 @@ const Home = (props) => {
                     placeholder="User name" />
 
                 <button>sign up</button>
+                or
+                <button>log in</button>
+                if you already have an account
             </form>
 
             <h4> </h4>
