@@ -8,6 +8,7 @@ class UserProvider extends Component {
         super()
         this.state = {
             users: []
+            
         }
 
     }
