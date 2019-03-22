@@ -1,9 +1,18 @@
-import React from 'react'
+import React, {Component} from 'react'
 import { withUsers } from '../context/userProvider.js'
 
 
-const Home = (props) => {
-    const { handleChange, handleSubmit, userName: { userName } } = props
+class Home extends Component { 
+    constructor(){
+        super()
+        this.state ={
+
+        }
+    }
+
+
+    render(){
+    const { handleChange, handleSubmit, userName: { userName } } = this.props
     return (
         <div>
             {/* <img src={("https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=60")} /> */}
@@ -34,6 +43,7 @@ const Home = (props) => {
 
         </div>
     )
+    }
 }
 
 export default withUsers(Home)

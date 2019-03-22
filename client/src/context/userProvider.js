@@ -7,10 +7,16 @@ class UserProvider extends Component {
     constructor() {
         super()
         this.state = {
-            usersID: ""
+            usersID: "",
+            savedparking:[]
         }
 
     }
+
+    saveParking = () => {
+        
+    }
+
 
     addUser = newUser => {
         axios.post("/user", newUser).then(response => {

@@ -10,11 +10,12 @@ const Navbar = (props) => {
                     <div className="navbar-links">
                         <Link to="/"> Home  </Link>
                         <Link to="/AboutUs"> About Park U</Link>
+                        <Link to="/savedParking"> Saved Parking</Link>
                     </div>
                 </div>
                 
             </div>
-            <button onClick={navToggler} className="nav-button">|||</button>
+            <button onClick={navToggler} className={`nav-button nav-button-${navToggle ? "open" : "closed"}`}>|||</button>
         </div>
     )
 }
