@@ -39,8 +39,6 @@ class ParkingProvider extends Component {
             .catch(err => console.log(err))
     }
 
-    ///// the axios request will be here. 
-
     render() {
         return (
             <ParkingContext.Provider
