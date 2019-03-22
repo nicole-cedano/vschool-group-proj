@@ -1,35 +1,48 @@
-import React , { Component } from 'react'
+import React, { Component } from 'react'
 import axios from "axios"
-
+import { withRouter } from 'react-router-dom'
 const UserContext = React.createContext()
 
-class UserProvider extends Component {
-    constructor(){
+class UserProvider extends Component { 
+    constructor() {
         super()
         this.state = {
-            users: []
+            usersID: ""
         }
 
     }
 
-
     addUser = newUser => {
         axios.post("/user", newUser).then(response => {
-            this.setState(prevState => ({
-                users: [...prevState.users, response.data]
-            }))
+            this.setState({
+                usersID: response.data._id
+            })
+        }, () => this.props.history.push("/Parkings"))
+    }
+
+    getUser = () => {
+        axios.get(`/user/${this.state.usersID}`).then(response => {
+            console.log(response.data)
+            this.setState({
+                usersID: response.data
+            })
         })
+        .catch(err => console.log(err))
+
     }
 
 
 
-    render(){
+
+    render() {
+        console.log(this.props)
         return (
-            <UserContext.Provider 
-            value ={{
-                users: this.state.users,
-                addUser: this.addUser
-            }}>
+            <UserContext.Provider
+                value={{
+                    users: this.state.user,
+                    addUser: this.addUser,
+                    getUser: this.getUser
+                }}>
 
                 {this.props.children}
             </UserContext.Provider>
@@ -37,10 +50,10 @@ class UserProvider extends Component {
     }
 }
 
-export default UserProvider
+export default withRouter(UserProvider)
 
 export const withUsers = C => props => (
     <UserContext.Consumer>
-        {value => <C {...props} {...value}/>}
+        {value => <C {...props} {...value} />}
     </UserContext.Consumer>
 )

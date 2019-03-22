@@ -3,9 +3,8 @@ import Navbar from './components/Navbar.js'
 import Home from './components/Home.js'
 import AboutUs from './components/AboutUs.js'
 import Parkings from './components/Parkings.js'
-import { withParking } from './context/ParkingProvider.js'
-import { withRouter, Route, Switch } from 'react-router-dom'
-import './style.css'
+import {withRouter, Route, Switch } from 'react-router-dom'
+import { withUsers } from './context/userProvider.js'
 
 
 
@@ -18,37 +17,37 @@ class App extends Component {
     }
 
     componentDidMount = () => {
-        /// the axios request will go here
+
     }
 
-    handleChange = (e) => {
+    handleChange = e => {
         this.setState({
             [e.target.name]: e.target.value
         })
     }
 
-    handleSubmit = (e) => {
-        e.preventdefault()
-        const newUser= {
-            userName: this.state.userName
+    handleSubmit = e => {
+        e.preventDefault()
+        const newUser = {
+            username: this.state.userName
         }
         this.props.addUser(newUser)
-        this.setState({userName: ""})
-
+        this.setState({ userName: "" })
     }
 
     render() {
         return (
             <div>
-                <Navbar /> 
+                <Navbar />
                 <Switch>
                     <Route exact path="/" render={routerProps => <Home {...routerProps}
-                        handleChange={this.handlechange}
+                        {...this.state}
+                        handleChange={this.handleChange}
                         handleSubmit={this.handleSubmit}
                         userName={this.state.userName}
                     />} />
-                    
-                    <Route path="/About" Component={AboutUs} /> 
+
+                    <Route path="/About" Component={AboutUs} />
                     <Route path="/Parkings" render={routerProps => <Parkings {...routerProps} />} />
                 </Switch>
 
@@ -57,6 +56,5 @@ class App extends Component {
     }
 }
 
-export default withRouter(withParking(App))
-
+export default  (withUsers(App))
 
