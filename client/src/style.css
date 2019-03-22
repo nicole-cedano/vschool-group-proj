@@ -125,4 +125,26 @@ video{
 }
 
 
+/* //////////parkings component styling */
+.find-button{
+    width: auto;
+    height: auto;
+    font-size: 20px;
+    border-radius: 10px;
+    position: relative;
+    left: 20%;
+    background-color: rgba(99, 158, 236, 0.377);
+}
 
+/* parking component styling */
+
+.parking-card:hover {
+   margin: 10px;
+   background-color: rgba(109, 109, 238, 0.112);
+}
+.heart{
+    font-size: 20px;
+}
+.heart:hover {
+    color: red;
+}

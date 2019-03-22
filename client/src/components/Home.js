@@ -11,12 +11,11 @@ class Home extends Component {
         }
     }
 
-
     render(){
-    const { handleChange, handleSubmit, userName: { userName } } = this.props
+    const { handleChange, handleSubmit, userName} = this.props
+    
     return (
         <div>
-            {/* <img src={("https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=60")} /> */}
             <video className="video-overlay" loop autoPlay >
                 <source src='https://media.istockphoto.com/videos/endless-grid-of-new-cars-drone-shot-video-id908045562' />
             </video>
@@ -31,7 +30,7 @@ class Home extends Component {
                     <>
                         {!isToggled
                             ? <form className="form" onSubmit={handleSubmit}>
-                                <h2>Sign Up</h2>
+                                <h2>Sign Up</h2> 
                                 <input
                                     type="text"
                                     name="userName"
@@ -40,10 +39,10 @@ class Home extends Component {
                                     placeholder="Username"
                                 />
                                 <button>Sign up</button>
-                                <p onClick={toggler}>{!isToggled ? "Login" : "sign"} </p>
+                                or <span onClick={toggler}> Log In </span>
                               </form>
-                            : <form  className="login-form" onSubmit={handleSubmit}>
-                                <h2>Login</h2>
+                            : <form  className="form" onSubmit={handleSubmit}>
+                            <h2>Log In</h2>
                                 <input
                                     type="text"
                                     name="userName"
@@ -52,9 +51,8 @@ class Home extends Component {
                                     placeholder="Username"
                                 />
                                 <button>Login</button>
-                                <span onClick={toggler}>Sign Up</span>
+                                <span onClick={toggler}>Back to sign up page</span>
                             </form>
-                          
                         }
                     </>
                 } />
