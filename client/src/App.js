@@ -5,6 +5,8 @@ import AboutUs from './components/AboutUs.js'
 import Parkings from './components/Parkings.js'
 import {withRouter, Route, Switch } from 'react-router-dom'
 import { withUsers } from './context/userProvider.js'
+import LogoutButton from './components/LogoutButton.js';
+import MySavedParking from './components/MySavedParking.js';
 
 
 
@@ -25,7 +27,7 @@ class App extends Component {
     handleChange = e => {
         this.setState({
             [e.target.name]: e.target.value
-        })
+        }, () =>this.props.getUsernameInput(this.state.userName))
     }
 
     handleSubmit = e => {
@@ -44,7 +46,7 @@ class App extends Component {
         
         return (
             <div>
-                <Navbar navToggle={this.state.navToggle} navToggler={this.navToggler}/> 
+                <Navbar navToggle={this.state.navToggle} navToggler={this.navToggler}/>
                 
                 <Switch>
                     <Route exact path="/" render={routerProps => <Home {...routerProps}
@@ -52,8 +54,10 @@ class App extends Component {
                         handleChange={this.handleChange}
                         handleSubmit={this.handleSubmit}
                         userName={this.state.userName}   /> } />
+                    <Route path="/mysavedparking" component={MySavedParking}/>
                     <Route path="/AboutUs" component={AboutUs}/> 
-                    <Route path="/Parkings" render={routerProps => <Parkings {...routerProps} />} />
+                    <Route path="/findparking" render={routerProps => <Parkings {...routerProps} />} />
+
                 </Switch>
 
             </div>
