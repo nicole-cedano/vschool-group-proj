@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {withParking} from '../context/ParkingProvider.js'
-
+import {withUsers} from '../context/userProvider.js'
+import ParkingList from './ParkingList.js'
 
 class Parkings extends Component {
     constructor(){
@@ -9,13 +10,23 @@ class Parkings extends Component {
 
         }
     }
+    componentDidMount() {
+        this.props.getUserPosition()
+    }
+
+
     render (){
+        console.log(this.props.locations)
         return (
             <div>
-
+                <button onClick={this.props.getParking}>FIND PARKING NEAR ME</button>    
+                {/* adding a ternary b/c locations are only loading sometimes */}
+                {this.props.locations ? <ParkingList 
+                locations={this.props.locations}/> : null}
+                
             </div>
         )
     }
 }
 
-export default withParking(Parkings)
+export default withUsers(withParking(Parkings))
