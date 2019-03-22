@@ -41,8 +41,8 @@ class Home extends Component {
                                 <button>Sign up</button>
                                 or <span onClick={toggler}> Log In </span>
                               </form>
-                            : <form  className="form" onSubmit={handleSubmit}>
-                            <h2>Log In</h2>
+                            : <form  className="form" onSubmit={this.props.handleLogin}>
+                                <h2>Login</h2>
                                 <input
                                     type="text"
                                     name="userName"
