@@ -1,11 +1,18 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const Navbar = () => {
+const Navbar = (props) => {
+    const { navToggle, navToggler } = props
     return (
-        <div className="navbar">
-            <Link to="/"> Home  </Link>
-            <Link to="/AboutUs"> About Park U</Link>
+        <div>
+            <div className="map">
+                <div onClick={navToggler} className={`navbar navbar-${navToggle ? "open" : "closed"}`} >
+                    <div className="navbar-links">
+                        <Link to="/"> Home  </Link>
+                        <Link to="/AboutUs"> About Park U</Link>
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }

@@ -4,7 +4,7 @@ import Contact from './Contact.js'
 const AboutUs = () => {
     return(
         <div>
-            we have decided to make this app because of the need of parking that is extreme in cities 
+            We have decided to make this app because of the need of parking that is extreme in cities. 
             <Contact />
         </div>
     )
