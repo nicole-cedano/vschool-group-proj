@@ -24,7 +24,7 @@ class UserProvider extends Component {
         axios.get(`/user/${this.state.usersID}`).then(response => {
             console.log(response.data)
             this.setState({
-                usersID: response.data
+                usersID: response.data._id
             })
         })
         .catch(err => console.log(err))

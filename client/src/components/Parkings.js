@@ -12,7 +12,6 @@ class Parkings extends Component {
     }
     componentDidMount() {
         this.props.getUserPosition()
-        this.props.getUser()
     }
 
 
