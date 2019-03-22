@@ -7,13 +7,14 @@ class UserProvider extends Component {
     constructor() {
         super()
         this.state = {
-            usersID: ""
+            usersID: localStorage.getItem("usersID") || ""
         }
 
     }
 
     addUser = newUser => {
         axios.post("/user", newUser).then(response => {
+            localStorage.setItem("usersID", response.data._id)
             this.setState({
                 usersID: response.data._id
             })
