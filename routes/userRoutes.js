@@ -15,8 +15,9 @@ userRouter.post("/", (req, res, next) => {
     })
 })
 
-userRouter.get("/:_id", (req, res, next) => {
-    User.findOne({ _id: req.params._id }, (err, user) => {
+userRouter.get("/:username", (req, res, next) => {
+    console.log(req.params)
+    User.findOne({ username: req.params.username }, (err, user) => {
         if (err) {
             res.status(500)
             return next(err)

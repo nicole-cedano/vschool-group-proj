@@ -8,7 +8,9 @@ const Navbar = (props) => {
             <div className="map">
                 <div onClick={navToggler} className={`navbar navbar-${navToggle ? "open" : "closed"}`} >
                     <div className="navbar-links">
-                        <Link to="/"> Home  </Link>
+                        <Link to="/">Home</Link>
+                        <Link to="/findparking">Find Parking</Link>
+                        <Link to="/mysavedparking">My ♡ Parking</Link>
                         <Link to="/AboutUs"> About Park U</Link>
                     </div>
                 </div>

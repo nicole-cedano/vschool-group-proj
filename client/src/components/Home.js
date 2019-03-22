@@ -33,7 +33,7 @@ const Home = (props) => {
                                 <button>Sign up</button>
                                 <p onClick={toggler}>{!isToggled ? "Login" : "sign"} </p>
                               </form>
-                            : <form  className="login-form" onSubmit={handleSubmit}>
+                            : <form  className="login-form" onSubmit={props.handleLogin}>
                                 <h2>Login</h2>
                                 <input
                                     type="text"
