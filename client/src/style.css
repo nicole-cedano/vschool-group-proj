@@ -6,9 +6,19 @@
 }
 
 /*//////////// Home component styling */
+.nav {
+    background-color: rgba(43, 24, 24, 0.822);
+    z-index: 20;
+}
 .map{
  background-image: url('https://images.unsplash.com/photo-1500333070776-343c73e1eb4a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60');
  background: 0.2;
+ 
+}
+
+.map-closed{
+    position: absolute;
+    top: -120px;
 }
 .navbar{
     position: relative;
@@ -36,6 +46,14 @@
 .navbar-closed{
     left: -300px;
     top: -100px;
+}
+.nav-button{
+    position: relative;
+    background-color: rgba(43, 24, 24, 0.822);
+    left: 90%;
+    color: white;
+    z-index: 10;
+    font-size: 30px;
 }
 
 .logo h2{
@@ -83,6 +101,9 @@ video{
 }
 
 /* ///////////contact component styling */
+.contact-page{
+    background-color: antiquewhite;
+}
 .links{
     display: grid;
     grid-template-rows: 1fr 1fr 1fr;

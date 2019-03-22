@@ -3,12 +3,11 @@ import {Link } from 'react-router-dom'
 
 const Contact = () => {
     return (
-        <div>
+        <div >
             Built by: 
         <div className="links">
             <div className="linksto">
             <h4>Pauline Makoma</h4>
-            styling will be added 
                 <a href="https://github.com/Pauline177"> <img src={('https://tse3.mm.bing.net/th?id=OIP._x0yLaog2BHZg-Se56CkowHaHa&pid=15.1&P=0&w=300&h=300')} /> </a>
                 <a href="https://www.linkedin.com/in/pauline-makoma"> <img src={('https://tse3.mm.bing.net/th?id=OIP.0qPv4hPOWTK-6uxvDKH9-gHaC1&pid=15.1&P=0&w=470&h=180')} /> </a>
                 {/* <a href=""> <img src={('')} /> </a> */}
