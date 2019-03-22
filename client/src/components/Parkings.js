@@ -3,14 +3,12 @@ import {withParking} from '../context/ParkingProvider.js'
 import {withUsers} from '../context/userProvider.js'
 import ParkingList from './ParkingList.js'
 
-
 class Parkings extends Component {
-    constructor(props){
-        super(props)
+    constructor(){
+        super()
         this.state = {
 
         }
-
     }
     componentDidMount() {
         this.props.getUserPosition()

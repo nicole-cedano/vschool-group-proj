@@ -13,6 +13,8 @@ class App extends Component {
         super()
         this.state = {
             userName: "",
+            navToggle: true,
+           
         }
     }
 
@@ -32,22 +34,25 @@ class App extends Component {
             username: this.state.userName
         }
         this.props.addUser(newUser)
-        this.setState({ userName: "" })
+        this.setState({userName: ""})
     }
 
+    navToggler = () => this.setState(prevState => ({ navToggle: !prevState.navToggle }))
+
+    
     render() {
+        
         return (
             <div>
-                <Navbar />
+                <Navbar navToggle={this.state.navToggle} navToggler={this.navToggler}/> 
+                
                 <Switch>
                     <Route exact path="/" render={routerProps => <Home {...routerProps}
                         {...this.state}
                         handleChange={this.handleChange}
                         handleSubmit={this.handleSubmit}
-                        userName={this.state.userName}
-                    />} />
-
-                    <Route path="/About" Component={AboutUs} />
+                        userName={this.state.userName}   /> } />
+                    <Route path="/AboutUs" component={AboutUs}/> 
                     <Route path="/Parkings" render={routerProps => <Parkings {...routerProps} />} />
                 </Switch>
 
