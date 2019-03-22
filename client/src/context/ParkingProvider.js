@@ -30,7 +30,7 @@ class ParkingProvider extends Component {
         }
 
     getParking = () => {
-        return axios.get(`https://places.cit.api.here.com/places/v1/discover/search?at=${this.state.lat},${this.state.long}&q=parking&size=15&tf=plain&show_refs=pvid&app_id=0hVu5uHr1pDgby7ibUB9&app_code=ivy0VpjGLDE3sTiqoQaUfg`).then(response => {
+        axios.get(`https://places.cit.api.here.com/places/v1/discover/search?at=${this.state.lat},${this.state.long}&q=parking&size=15&tf=plain&show_refs=pvid&app_id=0hVu5uHr1pDgby7ibUB9&app_code=ivy0VpjGLDE3sTiqoQaUfg`).then(response => {
             console.log(response)
             this.setState({
                 locations: response.data.results.items
@@ -38,8 +38,6 @@ class ParkingProvider extends Component {
         })
             .catch(err => console.log(err))
     }
-
-    ///// the axios request will be here. 
 
     render() {
         return (

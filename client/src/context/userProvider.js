@@ -7,8 +7,7 @@ class UserProvider extends Component {
     constructor() {
         super()
         this.state = {
-            usersID: "",
-            savedparking:[]
+            usersID: localStorage.getItem("usersID") || ""
         }
 
     }
@@ -20,6 +19,7 @@ class UserProvider extends Component {
 
     addUser = newUser => {
         axios.post("/user", newUser).then(response => {
+            localStorage.setItem("usersID", response.data._id)
             this.setState({
                 usersID: response.data._id
             })
