@@ -1,5 +1,6 @@
 import React from 'react'
 import { withUsers } from '../context/userProvider.js'
+import Toggle from '../shared/Toggle.js'
 
 
 const Home = (props) => {
@@ -16,21 +17,39 @@ const Home = (props) => {
                     Welcome to Park U, we are here to help you find available parking spaces near you.
                 </p>
             </div>
-            <div>
-                <form className="form" onSubmit={handleSubmit}>
-                    <h2>Username</h2>  
-                    <input
-                        type="text"
-                        name="userName"
-                        value={userName}
-                        onChange={handleChange}
-                        placeholder="Full Name"
-                    />
-                    <br></br>
-                    <button>Sign up</button>
-            </form>
+            <div className="auth-form-container">
+                <Toggle render={({ isToggled, toggler }) =>
+                    <>
+                        {!isToggled
+                            ? <form className="form" onSubmit={handleSubmit}>
+                                <h2>Sign Up</h2>
+                                <input
+                                    type="text"
+                                    name="userName"
+                                    value={userName}
+                                    onChange={handleChange}
+                                    placeholder="Username"
+                                />
+                                <button>Sign up</button>
+                                <p onClick={toggler}>{!isToggled ? "Login" : "sign"} </p>
+                              </form>
+                            : <form  className="login-form" onSubmit={handleSubmit}>
+                                <h2>Login</h2>
+                                <input
+                                    type="text"
+                                    name="userName"
+                                    value={userName}
+                                    onChange={handleChange}
+                                    placeholder="Username"
+                                />
+                                <button>Login</button>
+                                <span onClick={toggler}>Sign Up</span>
+                            </form>
+                          
+                        }
+                    </>
+                } />
             </div>
-
         </div>
     )
 }

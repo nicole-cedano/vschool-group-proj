@@ -8,7 +8,8 @@ const parkingSchema = new Schema ({
     },
     user: {
         type: Schema.Types.ObjectId,
-        required: true
+        required: true,
+        ref: "User"
     },
     href: String,
     location: String
