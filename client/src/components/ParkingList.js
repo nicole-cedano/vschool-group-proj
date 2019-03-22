@@ -12,10 +12,6 @@ const ParkingList = props => {
                     {...location}/>)
                 }
         </div>
-
-
-
-
     )
 }
 

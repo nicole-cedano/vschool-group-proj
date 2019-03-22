@@ -22,7 +22,7 @@ class UserProvider extends Component {
             this.setState({
                 usersID: response.data._id
             })
-        }, () => this.props.history.push("/Parkings"))
+        }, () => this.props.history.push("/findparking"))
     }
 
     getUser = oldUser => {
