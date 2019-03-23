@@ -26,7 +26,7 @@ class UserProvider extends Component {
     }
 
     getUser = oldUser => {
-        console.log(this.state.userName)
+        console.log(this.state.username)
         axios.get(`/user/${this.state.username}`).then(response => {
             console.log(response.data)
             localStorage.setItem("usersID", response.data._id)
@@ -61,6 +61,8 @@ class UserProvider extends Component {
         () => this.props.history.push("/mysavedparking")
         )
     }
+
+
 
 
 
