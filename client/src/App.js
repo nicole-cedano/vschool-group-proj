@@ -5,7 +5,6 @@ import AboutUs from './components/AboutUs.js'
 import Parkings from './components/Parkings.js'
 import { withRouter, Route, Switch } from 'react-router-dom'
 import { withUsers } from './context/userProvider.js'
-import LogoutButton from './components/LogoutButton.js';
 import MySavedParking from './components/MySavedParking.js';
 
 

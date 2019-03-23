@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import {withUsers} from "./userProvider.js"
 const ParkingContext = React.createContext()
 
 class ParkingProvider extends Component {
@@ -9,7 +10,8 @@ class ParkingProvider extends Component {
             lat: "",
             long: "",
             locationErr: "",
-            locations: []
+            locations: [],
+            mySavedLocations: [],
         }
     }
 
@@ -39,6 +41,27 @@ class ParkingProvider extends Component {
             .catch(err => console.log(err))
     }
 
+
+
+    // adding a saved parking locations to our user database 
+    addSavedParking = newLocation => {
+        axios.post(`/parking-locations/${this.props.usersID}`, newLocation).then(response => {
+            this.setState(prevState => ({
+                mySavedLocations: [...prevState.mySavedLocations, response.data]
+            }))
+        })
+    }
+
+    handleSaveParking = id => {
+        const newLocation = this.state.locations.find( location => location.id === id)
+        for(let key in newLocation){
+            if(key !== "title" && key !== "vicinity" &&  key !== "id"){
+                delete newLocation[key]
+            }
+        }
+        this.addSavedParking(newLocation)
+    }
+
     render() {
         return (
             <ParkingContext.Provider
@@ -48,7 +71,10 @@ class ParkingProvider extends Component {
                     locationErr: this.state.locationErr,
                     getUserPosition: this.getUserPosition,
                     getParking: this.getParking,
-                    locations: this.state.locations
+                    locations: this.state.locations,
+                    mySavedLocations: this.state.mySavedLocations,
+                    handleSaveParking: this.handleSaveParking,
+                    addSavedParking: this.addSavedParking
                 }}>
                 {this.props.children}
             </ParkingContext.Provider>
@@ -64,4 +90,4 @@ export const withParking = C => props => (
     </ParkingContext.Consumer>
 )
 
-export default (ParkingProvider)
+export default withUsers(ParkingProvider)
