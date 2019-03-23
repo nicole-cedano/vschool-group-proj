@@ -1,18 +1,26 @@
-import React from "react"
+import React, { Component } from "react"
+import { withParking } from "../context/ParkingProvider.js"
 import LogoutButton from './LogoutButton.js'
 
 
-const MySavedParking = () => {
 
-    return (
-        <div>
-            <LogoutButton />
-            
-        </div>
-    )
+class MySavedParking extends Component {
+    constructor() {
+        super()
+    }
+    componentDidMount() {
+        this.props.getSavedParking()
+    }
+    render() {
+        return (
+            <div>
+                <LogoutButton />
 
+            </div>
+        )
+    }
 
 }
 
 
-export default MySavedParking
+export default withParking(MySavedParking)
