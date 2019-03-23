@@ -50,6 +50,7 @@ class ParkingProvider extends Component {
                 mySavedLocations: [...prevState.mySavedLocations, response.data]
             }))
         })
+            .catch(err => console.log(err))
     }
 
     handleSaveParking = id => {
@@ -60,6 +61,15 @@ class ParkingProvider extends Component {
             }
         }
         this.addSavedParking(newLocation)
+    }
+    getSavedParking =() =>{
+        axios.get(`/parking-locations/user/${this.props.usersID}`).then(response =>{
+            console.log(response.data)
+            this.setState({
+                mySavedLocations: response.data
+            })
+        })
+        .catch (err => console.log(err))
     }
 
     render() {
@@ -74,7 +84,8 @@ class ParkingProvider extends Component {
                     locations: this.state.locations,
                     mySavedLocations: this.state.mySavedLocations,
                     handleSaveParking: this.handleSaveParking,
-                    addSavedParking: this.addSavedParking
+                    addSavedParking: this.addSavedParking,
+                    getSavedParking:this.getSavedParking
                 }}>
                 {this.props.children}
             </ParkingContext.Provider>
