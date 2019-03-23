@@ -15,6 +15,8 @@ class ParkingProvider extends Component {
         }
     }
 
+    // getting a users geolocation using the navigator
+
         getUserPosition = () => {
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(position => {
@@ -30,7 +32,7 @@ class ParkingProvider extends Component {
                 })
             }
         }
-
+// using HERE MAPS api to receive data 
     getParking = () => {
         axios.get(`https://places.cit.api.here.com/places/v1/discover/search?at=${this.state.lat},${this.state.long}&q=parking&size=15&tf=plain&show_refs=pvid&app_id=0hVu5uHr1pDgby7ibUB9&app_code=ivy0VpjGLDE3sTiqoQaUfg`).then(response => {
             console.log(response)
@@ -90,4 +92,5 @@ export const withParking = C => props => (
     </ParkingContext.Consumer>
 )
 
+// wrapping with user context to be able to make requests to our own DB
 export default withUsers(ParkingProvider)
