@@ -13,7 +13,7 @@ class App extends Component {
     constructor() {
         super()
         this.state = {
-            userName: "",
+            username: "",
             navToggle: true,
 
         }
@@ -23,16 +23,16 @@ class App extends Component {
     handleChange = e => {
         this.setState({
             [e.target.name]: e.target.value
-        }, () => this.props.getUsernameInput(this.state.userName))
+        }, () => this.props.getUsernameInput(this.state.username))
     }
 
     handleSubmit = e => {
         e.preventDefault()
         const newUser = {
-            username: this.state.userName
+            username: this.state.username
         }
         this.props.addUser(newUser)
-        this.setState({ userName: "" })
+        this.setState({ username: "" })
     }
 
     navToggler = () => this.setState(prevState => ({ navToggle: !prevState.navToggle }))
@@ -49,11 +49,11 @@ class App extends Component {
                         {...this.state}
                         handleChange={this.handleChange}
                         handleSubmit={this.handleSubmit}
-                        userName={this.state.userName} />} />
+                        username={this.state.username} />} />
                     <Route path="/mysavedparking" component={MySavedParking} />
                     <Route path="/AboutUs" component={AboutUs} />
                     <Route path="/findparking" render={routerProps => <Parkings {...routerProps}
-                        userName={this.state.userName} />} />
+                        username={this.state.username} />} />
 
                 </Switch>
 

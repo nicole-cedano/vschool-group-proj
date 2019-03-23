@@ -1,20 +1,29 @@
-import React from "react"
+import React, { Component } from "react"
+import {withParking} from "../context/ParkingProvider.js"
 import SavedParkingList from "./SavedParkingList.js"
 import LogoutButton from './LogoutButton.js'
+import {withUsers} from "../context/userProvider.js"
 
 
-const MySavedParking = () => {
+class MySavedParking extends Component {
+    constructor() {
+        super()
+    }
 
-    return (
+    componentDidMount() {
+        this.props.getSavedParking()
+    }
+    render(){
+    return(
         <div>
-            <LogoutButton />
-            <SavedParkingList />
+    <LogoutButton handleLogout ={this.props.handleLogout} />
+    {this.props.MySavedLocations? <SavedParkingList 
+     mySavedLocations={this.props.mySavedLocations}/> : null}
             
-        </div>
+        </div >
     )
-
-
+}
 }
 
 
-export default MySavedParking
+export default withUsers(withParking(MySavedParking))
