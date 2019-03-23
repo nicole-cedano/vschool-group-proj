@@ -8,12 +8,12 @@ class UserProvider extends Component {
         super()
         this.state = {
             usersID: localStorage.getItem("usersID") || "",
-            userName: ""
+            username: localStorage.getItem("username") || ""
         }
 
     }
-    getUsernameInput = (userName) => {
-        this.setState({userName: userName})
+    getUsernameInput = (username) => {
+        this.setState({username: username})
     }
     addUser = newUser => {
         axios.post("/user", newUser).then(response => {
@@ -22,15 +22,18 @@ class UserProvider extends Component {
             this.setState({
                 usersID: response.data._id
             })
-        }, () => this.props.history.push("/Parkings"))
+        }, () => this.props.history.push("/findparking"))
     }
 
     getUser = oldUser => {
         console.log(this.state.userName)
-        axios.get(`/user/${this.state.userName}`).then(response => {
+        axios.get(`/user/${this.state.username}`).then(response => {
             console.log(response.data)
+            localStorage.setItem("usersID", response.data._id)
+            localStorage.setItem("username", response.data.username)
             this.setState({
-                usersID: response.data._id
+                usersID: response.data._id,
+                username: response.data.username
             })
         })
             .catch(err => console.log(err))
@@ -40,6 +43,7 @@ class UserProvider extends Component {
     // taking user back to home page if they want to log out and removing their information 
     handleLogout = () => {
         localStorage.removeItem("usersID")
+        localStorage.removeItem("username")
         this.setState({
             usersID: ""
         },
@@ -50,10 +54,10 @@ class UserProvider extends Component {
     handleLogin = e => {
         e.preventDefault()
         const oldUser = {
-            username: this.state.userName
+            username: this.state.username
         }
         this.getUser(oldUser)
-        this.setState({userName: ""},
+        this.setState({username: ""},
         () => this.props.history.push("/mysavedparking")
         )
     }
@@ -70,7 +74,8 @@ class UserProvider extends Component {
                     handleLogout: this.handleLogout,
                     handleLogin: this.handleLogin,
                     getUsernameInput: this.getUsernameInput,
-                    userName: this.state.userName
+                    username: this.state.username,
+                    usersID: this.state.usersID
                 }}>
 
                 {this.props.children}

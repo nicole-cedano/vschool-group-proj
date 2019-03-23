@@ -1,10 +1,14 @@
 import React from "react"
+import LogoutButton from './LogoutButton.js'
 
 
 const MySavedParking = () => {
 
     return (
-        <div></div>
+        <div>
+            <LogoutButton />
+            
+        </div>
     )
 
 
