@@ -11,7 +11,7 @@ const Parking = props => {
             <h3>{title}</h3>
             <p>{vicinity}</p>
             <a href={`https://www.google.com/maps/search/?api=1&query=${title}`}>Directions</a>
-            <button className="heart">♡</button>
+            <button onClick={() => props.handleSaveParking(id)} className="heart">♡</button>
         </div>
     </div>
     )
