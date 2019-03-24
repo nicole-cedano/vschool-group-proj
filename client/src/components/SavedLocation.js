@@ -2,7 +2,7 @@ import React from "react"
 import {withParking} from "../context/ParkingProvider.js"
 
 const SavedLocation = props =>{
-  const {title,vicinity,_id} = props
+  const {title,vicinity, _id} = props
   return(
     <div className ="saved-location ">
     <h3>{title}</h3>

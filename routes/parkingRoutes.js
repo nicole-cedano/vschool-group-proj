@@ -27,5 +27,16 @@ parkingRouter.post('/:userID', (req, res, next) => {
     })
 })
 
+//Delete a user saved parking location
+parkingRouter.delete("/:_id"), (req, res, next) => {
+    Parking.findOneAndRemove({_id: req.params._id}, (err, deletedLocation) => {
+        if(err) {
+            res.status(500)
+            return next(err)
+        }
+        return res.status(202).send(`Bounty ${deletedLocation.title} removed.`)
+    })
+}
+
 
 module.exports = parkingRouter
