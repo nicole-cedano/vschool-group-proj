@@ -58,7 +58,7 @@ class UserProvider extends Component {
         }
         this.getUser(oldUser)
         this.setState({username: ""},
-        () => this.props.history.push("/mysavedparking")
+        () => this.props.history.push("/findparking")
         )
     }
 

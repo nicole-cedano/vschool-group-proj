@@ -3,7 +3,7 @@ import { withParking } from '../context/ParkingProvider.js'
 
 
 const Parking = props => {
-    const { title, href, vicinity, id} = props
+    const { title, vicinity, id} = props
 
     return(
     <div> 

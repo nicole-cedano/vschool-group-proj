@@ -19,12 +19,11 @@ class Parkings extends Component {
         return (
             <div>
                 <LogoutButton handleLogout={this.props.handleLogout} />
-                <h3>{this.props.userName}</h3> 
+                <h3>{this.props.username}</h3> 
                 <button onClick={this.props.getParking} className="find-button">FIND PARKING NEAR ME</button>      
                 {/* adding a ternary b/c locations are only loading sometimes */}
                 {this.props.locations ? <ParkingList 
                 locations={this.props.locations}/> : null}
-                
             </div>
         )
     }
