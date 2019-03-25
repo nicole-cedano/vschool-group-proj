@@ -26,6 +26,7 @@
     z-index: 3;
     padding: 10px;
     background-color: rgba(43, 24, 24, 0.822);
+    opacity: 0.6;
     
 }
 .navbar a{
@@ -44,16 +45,19 @@
     left: 0;
 }
 .navbar-closed{
-    left: -300px;
+    left: -300px; 
     top: -100px;
 }
 .nav-button{
-    position: relative;
-    background-color: rgba(43, 24, 24, 0.822);
-    left: 90%;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+    background-color:rgba(99, 158, 236, 0.877);
+    left:auto;
     color: white;
     z-index: 10;
-    font-size: 30px;
+    font-size: 20px;
 }
 .nav-button-closed{
     transform: rotate(90deg)
