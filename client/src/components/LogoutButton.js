@@ -1,11 +1,11 @@
 import React from "react"
-import { withUsers }  from "../context/userProvider.js"
+import { withUsers }  from '../context/userProvider.js'
 
 
 const LogoutButton = props => {
     return (
-        <div>
-        <button onClick={props.handleLogout} className="logout-button">Logout</button>
+        <div onClick={props.handleLogout} className="logout-button"> 
+        <h3>Logout</h3>
         </div>
     )
 }

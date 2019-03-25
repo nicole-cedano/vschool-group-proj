@@ -6,6 +6,7 @@ const ParkingList = props => {
 
     return (
         <div className="parking-list">
+        
             {props.locations.map(location => 
                 <Parking 
                     key={location.id}
@@ -14,5 +15,4 @@ const ParkingList = props => {
         </div>
     )
 }
-
 export default ParkingList
