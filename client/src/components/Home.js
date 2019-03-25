@@ -15,7 +15,7 @@ class Home extends Component {
     const { handleChange, handleSubmit, username} = this.props
     
     return (
-        <div>
+        <div className ="main-home-div">
             <video className="video-overlay" loop autoPlay >
                 <source className="video" src='https://media.istockphoto.com/videos/endless-grid-of-new-cars-drone-shot-video-id908045562' />
             </video>

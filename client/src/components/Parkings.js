@@ -23,8 +23,8 @@ class Parkings extends Component {
         const {navToggle, navToggler} = this.props
         return (
             <div>
-                <h3>{this.props.username}</h3> 
                 <LogoutButton handleLogout={this.props.handleLogout} />
+                <h3>Hello, {this.props.username}</h3> 
                 <button onClick={this.props.getParking} className="find-button">FIND PARKING NEAR ME</button>      
                 {/* adding a ternary b/c locations are only loading sometimes */}
                 {this.props.locations ? <ParkingList 
