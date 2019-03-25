@@ -26,6 +26,7 @@
     z-index: 3;
     padding: 10px;
     background-color: rgba(43, 24, 24, 0.822);
+    opacity: 0.6;
     
 }
 .navbar a{
@@ -44,16 +45,19 @@
     left: 0;
 }
 .navbar-closed{
-    left: -300px;
+    left: -300px; 
     top: -100px;
 }
 .nav-button{
-    position: relative;
-    background-color: rgba(43, 24, 24, 0.822);
-    left: 90%;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+    background-color:rgba(99, 158, 236, 0.877);
+    left:auto;
     color: white;
     z-index: 10;
-    font-size: 30px;
+    font-size: 20px;
 }
 .nav-button-closed{
     transform: rotate(90deg)
@@ -73,14 +77,18 @@
     padding: 10px;
     color: rgba(255, 255, 255, 0.644);
 }
-video{
+.video-overlay{
     position: fixed; 
-    width: 100;
-    height: 100vh;
+    min-width: 100%;
+    min-height: 100%;
     margin: 0;
     z-index: -100;
     background-size: cover;
     opacity: 0.2;
+}
+.form-container{
+    position: relative;
+    left:40%;
 }
 .form{
     margin: 30px;
@@ -132,16 +140,25 @@ video{
     font-size: 20px;
     border-radius: 10px;
     position: relative;
-    left: 20%;
+    left: 35%;
     background-color: rgba(99, 158, 236, 0.377);
 }
 
 /* parking component styling */
-
-.parking-card:hover {
-   margin: 10px;
-   background-color: rgba(109, 109, 238, 0.112);
+.parking-card{
+    border-bottom:  1px solid rgba(165, 165, 212, 0.536);
+    margin: 10px;
+    padding: 10px;
+    width: 50%;
+    position: relative;
+    left: 20%;
 }
+.parking-card:hover {
+   margin: 20px;
+   background-color: rgba(109, 109, 238, 0.112);
+   font-size: 20px;
+}
+
 .heart{
     font-size: 20px;
 }
@@ -162,3 +179,39 @@ span :hover {
 .logout-button{
     
 }
+.heart-saved{
+    color: red;
+}
+.heart-unsaved{
+    color: black;
+}
+
+/* //////logout component */
+.logout-div{
+    width: 20px;
+    height: 20px;
+
+}
+.logout-button{
+    background-image: url("https://image.flaticon.com/icons/svg/1427/1427087.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin: 10px;
+    width: 50px;
+    height: 50px;
+    color: blue;
+}
+
+/* ////////////media query */
+@media (min-width: 1416px){
+
+.nav-button{
+    left: 94%
+}
+.find-button{
+    left:45%;
+}
+
+
+}
+

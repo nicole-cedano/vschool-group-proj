@@ -1,21 +1,26 @@
-import React, {Component} from 'react'
-import {withParking} from '../context/ParkingProvider.js'
-import {withUsers} from '../context/userProvider.js'
+import React, { Component } from 'react'
+import { withParking } from '../context/ParkingProvider.js'
+import { withUsers } from '../context/userProvider.js'
 import ParkingList from './ParkingList.js'
-import LogoutButton from "./LogoutButton.js"
+import Spinner from './Spinner.js'
+import LogoutButton from './LogoutButton.js'
+
 class Parkings extends Component {
-    constructor(){
+    constructor() {
         super()
         this.state = {
+            isLoading: true,
             
+
         }
     }
     componentDidMount() {
         this.props.getUserPosition()
+        this.setState({isLoading: false})
     }
 
-    render (){
-        
+    render() {
+        const {navToggle, navToggler} = this.props
         return (
             <div>
                 <LogoutButton handleLogout={this.props.handleLogout} />

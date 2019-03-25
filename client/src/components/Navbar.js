@@ -1,8 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-
+import LogoutButton from './LogoutButton'
 const Navbar = (props) => {
-    const { navToggle, navToggler } = props
+    const { navToggle, navToggler, handleLogout, userName  } = props
     return (
         <div>
             <div className={`map map-${navToggle ? "open" : "closed"}`}>
