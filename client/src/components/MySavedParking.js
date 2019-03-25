@@ -18,7 +18,7 @@ class MySavedParking extends Component {
         console.log(this.props.mySavedLocations)
         return (
             <div>
-                Logged-in as:<h3 style={{ color: "lightBlue" }}> {this.props.userName}</h3>
+                Logged-in as:<h3 style={{ color: "lightBlue" }}> {this.props.username}</h3>
                 <LogoutButton handleLogout={this.props.handleLogout} />
                 {this.props.mySavedLocations ? <SavedParkingList
                     mySavedLocations={this.props.mySavedLocations} /> : null}
