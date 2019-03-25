@@ -8,7 +8,7 @@ const SavedLocation = props =>{
     <h3>{title}</h3>
     <p>{vicinity}</p>
     <a href ={`https://www.google.com/maps/search/?api=1&query=${title}`}>Directions</a>
-    <button>Delete</button>
+    <button onClick = {() => props.handleDelete(_id)} className='delete-button'>Delete</button>
 
     </div>
   )
