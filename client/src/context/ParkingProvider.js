@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import { threadId } from 'worker_threads';
 const ParkingContext = React.createContext()
 
 class ParkingProvider extends Component {
@@ -9,7 +10,8 @@ class ParkingProvider extends Component {
             lat: "",
             long: "",
             locationErr: "",
-            locations: []
+            locations: [],
+            saveToggle: false,
         }
     }
 
@@ -39,6 +41,9 @@ class ParkingProvider extends Component {
             .catch(err => console.log(err))
     }
 
+    saveToggler = () => this.setState(prevState => ({ saveToggle: !prevState.saveToggle }))
+
+
     render() {
         return (
             <ParkingContext.Provider
@@ -48,7 +53,9 @@ class ParkingProvider extends Component {
                     locationErr: this.state.locationErr,
                     getUserPosition: this.getUserPosition,
                     getParking: this.getParking,
-                    locations: this.state.locations
+                    locations: this.state.locations,
+                    saveToggler: this.saveToggler,
+                    saveToggle: this.state.saveToggle,
                 }}>
                 {this.props.children}
             </ParkingContext.Provider>

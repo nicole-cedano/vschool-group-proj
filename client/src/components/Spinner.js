@@ -1,12 +1,12 @@
-import React from 'react'
-import {MDBSpinner} from 'reactmdb'
+import React from "react"
 
 const Spinner = () => {
-    return (
-        <div>
-                <MDBSpinner multicolor/>
-        </div>
-    )
+  return (
+    <div className="spinner-border" role="status">
+            <span className="spinner"> loading</span>
+    </div> 
+  )
 }
+
 
 export default Spinner

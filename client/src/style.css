@@ -137,18 +137,27 @@ video{
 }
 
 /* parking component styling */
-
+.parking-card{
+    border:  1px solid rgba(165, 165, 212, 0.536);
+    margin: 20px;
+}
 .parking-card:hover {
    margin: 10px;
    background-color: rgba(109, 109, 238, 0.112);
 }
+
 .heart{
     font-size: 20px;
 }
 .heart:hover {
     color: red;
 }
-
+.heart-saved{
+    color: red;
+}
+.heart-unsaved{
+    color: black;
+}
 
 /* //////logout component */
 .logout-div{

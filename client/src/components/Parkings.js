@@ -8,22 +8,25 @@ class Parkings extends Component {
     constructor() {
         super()
         this.state = {
+            isLoading: true,
+            
 
         }
     }
     componentDidMount() {
         this.props.getUserPosition()
+        this.setState({isLoading: false})
     }
 
     render() {
-
+        const {navToggle, navToggler} = this.props
         return (
             <div>
+                
                 <button onClick={this.props.getParking} className="find-button">FIND PARKING NEAR ME</button>
                 {/* adding a ternary b/c locations are only loading sometimes */}
                 {this.props.locations ? <ParkingList
                     locations={this.props.locations} /> : <Spinner />}
-
             </div>
         )
     }
