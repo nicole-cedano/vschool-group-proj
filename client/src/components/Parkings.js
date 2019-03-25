@@ -3,6 +3,7 @@ import { withParking } from '../context/ParkingProvider.js'
 import { withUsers } from '../context/userProvider.js'
 import ParkingList from './ParkingList.js'
 import Spinner from './Spinner.js'
+import LogoutButton from './LogoutButton.js'
 
 class Parkings extends Component {
     constructor() {
@@ -22,11 +23,12 @@ class Parkings extends Component {
         const {navToggle, navToggler} = this.props
         return (
             <div>
-                
-                <button onClick={this.props.getParking} className="find-button">FIND PARKING NEAR ME</button>
+                <h3>{this.props.username}</h3> 
+                <LogoutButton handleLogout={this.props.handleLogout} />
+                <button onClick={this.props.getParking} className="find-button">FIND PARKING NEAR ME</button>      
                 {/* adding a ternary b/c locations are only loading sometimes */}
-                {this.props.locations ? <ParkingList
-                    locations={this.props.locations} /> : <Spinner />}
+                {this.props.locations ? <ParkingList 
+                locations={this.props.locations}/> : null}
             </div>
         )
     }

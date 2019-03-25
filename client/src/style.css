@@ -136,18 +136,23 @@
     font-size: 20px;
     border-radius: 10px;
     position: relative;
-    left: 20%;
+    left: 35%;
     background-color: rgba(99, 158, 236, 0.377);
 }
 
 /* parking component styling */
 .parking-card{
-    border:  1px solid rgba(165, 165, 212, 0.536);
-    margin: 20px;
+    border-bottom:  1px solid rgba(165, 165, 212, 0.536);
+    margin: 10px;
+    padding: 10px;
+    width: 50%;
+    position: relative;
+    left: 20%;
 }
 .parking-card:hover {
-   margin: 10px;
+   margin: 20px;
    background-color: rgba(109, 109, 238, 0.112);
+   font-size: 20px;
 }
 
 .heart{
@@ -185,7 +190,9 @@
 .nav-button{
     left: 94%
 }
-
+.find-button{
+    left:45%;
+}
 
 
 }

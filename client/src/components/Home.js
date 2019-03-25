@@ -12,7 +12,7 @@ class Home extends Component {
     }
 
     render(){
-    const { handleChange, handleSubmit, userName} = this.props
+    const { handleChange, handleSubmit, username} = this.props
     
     return (
         <div>
@@ -33,8 +33,8 @@ class Home extends Component {
                                 <h2>Sign Up</h2> 
                                 <input
                                     type="text"
-                                    name="userName"
-                                    value={userName}
+                                    name="username"
+                                    value={username}
                                     onChange={handleChange}
                                     placeholder="Username"
                                 />
@@ -45,8 +45,8 @@ class Home extends Component {
                                 <h2>Login</h2>
                                 <input
                                     type="text"
-                                    name="userName"
-                                    value={userName}
+                                    name="username"
+                                    value={username}
                                     onChange={handleChange}
                                     placeholder="Username"
                                 />

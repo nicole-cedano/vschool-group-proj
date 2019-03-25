@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema 
 
 const parkingSchema = new Schema ({
-    name: {
+    title: {
         type: String,
         required: true
     },
@@ -11,8 +11,9 @@ const parkingSchema = new Schema ({
         required: true,
         ref: "User"
     },
-    href: String,
-    location: String
+    id: String,
+    vicinity: String,
+    
 })
 
 
