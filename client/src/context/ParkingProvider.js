@@ -64,14 +64,23 @@ class ParkingProvider extends Component {
         }
         this.addSavedParking(newLocation)
     }
-    getSavedParking =() =>{
+    getSavedParking =usersID =>{
         axios.get(`/parking-locations/user/${this.props.usersID}`).then(response =>{
-            console.log(response.data)
             this.setState({
                 mySavedLocations: response.data
             })
         })
         .catch (err => console.log(err))
+    }
+    // user will be able to delete a saved location with handle delete 
+    handleDelete = _id => {
+        axios.delete(`/parking-locations/${_id}`).then(response => {
+            alert(response.data)
+            this.setState(prevState => ({
+                mySavedLocations: prevState.mySavedLocations.filter(location => location._id !==  _id)
+            }))
+        })
+        .catch(err => console.log(err))
     }
 
     render() {
@@ -87,7 +96,8 @@ class ParkingProvider extends Component {
                     mySavedLocations: this.state.mySavedLocations,
                     handleSaveParking: this.handleSaveParking,
                     addSavedParking: this.addSavedParking,
-                    getSavedParking:this.getSavedParking
+                    getSavedParking:this.getSavedParking,
+                    handleDelete: this.handleDelete
                 }}>
                 {this.props.children}
             </ParkingContext.Provider>
