@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { withParking } from '../context/ParkingProvider.js'
 import { withUsers } from '../context/userProvider.js'
 import ParkingList from './ParkingList.js'
-import Spinner from './Spinning.js'
+import Spinner from './Spinner.js'
 
 class Parkings extends Component {
     constructor() {
