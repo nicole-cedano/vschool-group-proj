@@ -148,3 +148,17 @@ video{
 .heart:hover {
     color: red;
 }
+
+/* adding hover effects to links ...buttons etc */
+a :hover {
+    cursor: pointer
+}
+
+span :hover {
+    cursor: pointer;
+
+}
+
+.logout-button{
+    
+}
