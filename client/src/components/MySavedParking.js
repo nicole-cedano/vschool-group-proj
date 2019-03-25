@@ -9,7 +9,7 @@ const MySavedParking = (props) => {
     return (
 
         <div>
-            Logged-in as:<h3 style={{ color: "blue" }}> {userName}</h3>
+            Logged-in as:<h3 style={{ color: "lightBlue" }}> {userName}</h3>
             <LogoutButton handleLogout={handleLogout} />
         </div>
     )

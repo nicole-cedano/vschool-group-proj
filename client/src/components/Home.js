@@ -17,7 +17,7 @@ class Home extends Component {
     return (
         <div>
             <video className="video-overlay" loop autoPlay >
-                <source src='https://media.istockphoto.com/videos/endless-grid-of-new-cars-drone-shot-video-id908045562' />
+                <source className="video" src='https://media.istockphoto.com/videos/endless-grid-of-new-cars-drone-shot-video-id908045562' />
             </video>
             <div className="logo">
                 <h2>ParkU</h2>
@@ -25,7 +25,7 @@ class Home extends Component {
                     Welcome to Park U, we are here to help you find available parking spaces near you.
                 </p>
             </div>
-            <div className="auth-form-container">
+            <div className="form-container">
                 <Toggle render={({ isToggled, toggler }) =>
                     <>
                         {!isToggled
