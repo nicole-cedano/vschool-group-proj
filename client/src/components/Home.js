@@ -16,7 +16,7 @@ class Home extends Component {
     
     return (
         <div className ="main-home-div">
-            <video className="video-overlay" loop autoPlay >
+            <video className="video-overlay" autoPlay loop>
                 <source className="video" src='https://media.istockphoto.com/videos/endless-grid-of-new-cars-drone-shot-video-id908045562' />
             </video>
             <div className="logo">
