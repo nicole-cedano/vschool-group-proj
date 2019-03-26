@@ -13,8 +13,7 @@ const Parking = props => {
             <a href={`https://www.google.com/maps/search/?api=1&query=${title}`}>Directions</a>
             {/* <button className={` heart heart-${saveToggle ? "saved" : "unsaved"}`}  onClick={saveToggler}>♡</button> */}
             <Toggle render={({toggler, isToggled}) => 
-            <button onClick={() => props.handleSaveParking(id)} 
-            onClick={toggler}
+            <button onClick={() => props.handleSaveParking(id)}
             className={`heart heart-${!isToggled ? "unsaved" : "saved" }`}>♡</button>
         }/>
         </div>
