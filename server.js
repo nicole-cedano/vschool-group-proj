@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 6000
 // Middleware 
 app.use(express.json())
 app.use(morgan('dev'))
-app.use(express.static(path.join(__dirname, "client", "built")))
+app.use(express.static(path.join(__dirname, "client", "build")))
 
 
 // connect DB 
