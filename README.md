@@ -10,6 +10,7 @@ Provide a way for users to easily find, save, and delete parking spots near them
 
 Github Repository: https://github.com/nicole-cedano/vschool-group-proj
 
+
 ## Technologies Used
 * HTML, CSS, JavaScript, React, Axios
 * Node, Expess + Middleware, MongoDB, Mongoose

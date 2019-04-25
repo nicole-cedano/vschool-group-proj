@@ -12,7 +12,7 @@ app.use(express.static(path.join(__dirname, "client", "built")))
 
 
 // connect DB 
-mongoose.connect(process.env.mongolab-amorphous-21212 || "mongodb://localhost:27017/parking-u-db", {useNewUrlParser: true}, () => {
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/parking-u-db", {useNewUrlParser: true}, () => {
     console.log("Connect to the DB")
 })
 
