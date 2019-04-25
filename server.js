@@ -2,15 +2,17 @@ const express = require('express')
 const app = express()
 const morgan = require('morgan')
 const mongoose = require('mongoose')
+const path = require('path')
 const PORT = process.env.PORT || 6000
 
 // Middleware 
 app.use(express.json())
 app.use(morgan('dev'))
+app.use(express.static(path.join(__dirname, "client", "built")))
 
 
 // connect DB 
-mongoose.connect("mongodb://localhost:27017/parking-u-db", {useNewUrlParser: true}, () => {
+mongoose.connect(process.env.mongolab-amorphous-21212 || "mongodb://localhost:27017/parking-u-db", {useNewUrlParser: true}, () => {
     console.log("Connect to the DB")
 })
 
@@ -27,6 +29,10 @@ app.use((err, req, res, next) => {
 
 
 // Server Listen 
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+});
+
 app.listen(PORT,() => { 
     console.log(`Server is running on port ${PORT}`)
 })
